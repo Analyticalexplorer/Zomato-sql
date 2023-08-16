@@ -193,13 +193,13 @@ where rnk=1
                 from sales
                 group by userid,product_id through which i got count of product id with user and product ID's
 
-second i wrote the query
+next i wrote the query
                 select *,rank() over(partition by userid order by cnt desc) rnk from 
                (select userid,product_id,count(product_id) as cnt 
                 from sales
                 group by userid,product_id)subquery; through which i got the ranking of based on the count of product purchased 
 
-third i wrote a query
+finally i wrote a query
                 select* from
                (select *,rank() over(partition by userid order by cnt desc) rnk from 
                (select userid,product_id,count(product_id) as cnt 
